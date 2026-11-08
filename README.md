@@ -1,16 +1,52 @@
-# React + Vite
+# Student Management System
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A responsive single-page application to manage student records - add, view,
+search, sort, edit, and delete students with full client-side persistence.
 
-Currently, two official plugins are available:
+Built as Task 1 of a Software Engineering internship.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
 
-## React Compiler
+- **Create** - Add students with roll number, name, email, phone, course, and year.
+- **Read** - View all students in a sortable, searchable table.
+- **Update** - Edit any record; the form pre-fills with the selected student's data.
+- **Delete** - Delete with a confirmation dialog (no accidental data loss).
+- **Validation** - Required fields, email format, phone format, year range (1-6),
+  and duplicate roll number / email prevention.
+- **Search** - Live search across name, email, roll number, and course.
+- **Sort** - Newest first, name A-Z / Z-A, roll number, year ascending / descending.
+- **Persistence** - Records survive page refresh via `localStorage`.
+- **Responsive** - Table layout on desktop; stacked labeled cards on mobile.
+- **Accessibility** - Labeled inputs, `aria-invalid` / `aria-describedby` on errors,
+  keyboard-dismissable dialog (Esc), `role="status"` toast announcements.
+- **Empty states** - Distinct messages for "no students yet" vs. "no search results".
+- **Feedback** - Inline field errors + auto-dismissing success/error toast.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech Stack
 
-## Expanding the Oxlint configuration
+|    Layer    |            Choice              |                                          Why                                           |
+|-------------|--------------------------------|----------------------------------------------------------------------------------------|
+| UI          | React 18+                      | Component model, predictable state-driven rendering                                    |
+| Build       | Vite                           | Fast dev server and production build                                                   |
+| Styling     | Plain CSS with design tokens   | No dependency bloat; demonstrates CSS fundamentals                                     |
+| Persistence | Browser `localStorage`         | Suitable for a client-only task; isolated behind a storage module for easy replacement |
+| Linting     | oxlint (Vite template default) | Static checks                                                                          |
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+No UI component library is used - all components and styles are original.
+
+## Getting Started
+
+**Prerequisites:** Node.js 18 or newer, npm.
+
+```bash
+# install dependencies
+npm install
+
+# start the dev server (http://localhost:5173)
+npm run dev
+
+# create a production build
+npm run build
+
+# preview the production build locally
+npm run preview
